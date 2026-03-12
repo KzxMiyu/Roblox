@@ -1,61 +1,291 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-<title>Miyu Roblox</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miyu x Roblox — Cài đặt</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-<style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a1a;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
 
-body{
-font-family: Arial;
-background:#0f172a;
-color:white;
-text-align:center;
-padding-top:80px;
-}
+        .card {
+            background: linear-gradient(145deg, #1a1a3e, #12122a);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 28px;
+            padding: 40px 32px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+        }
 
-.app{
-background:#1e293b;
-width:300px;
-margin:auto;
-padding:30px;
-border-radius:15px;
-}
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 22px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #ff4757, #ff6b81);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            box-shadow: 0 10px 30px rgba(255,71,87,0.4);
+        }
 
-img{
-width:100px;
-border-radius:20px;
-}
+        h1 {
+            font-size: 1.6rem;
+            margin-bottom: 6px;
+        }
 
-button{
-margin-top:20px;
-padding:15px 30px;
-font-size:18px;
-border:none;
-border-radius:10px;
-background:#22c55e;
-color:white;
-}
+        .developer {
+            color: #007AFF;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
 
-</style>
+        .version {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.82rem;
+            margin-bottom: 24px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+            padding: 16px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 16px;
+        }
+
+        .info-item .val {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .info-item .lbl {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.72rem;
+            margin-top: 3px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .btn-install {
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+        }
+        .btn-install:hover {
+            box-shadow: 0 8px 30px rgba(0,122,255,0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-direct {
+            background: linear-gradient(135deg, #34C759, #30D158);
+        }
+        .btn-direct:hover {
+            box-shadow: 0 8px 30px rgba(52,199,89,0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-alt {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.7);
+        }
+        .btn-alt:hover {
+            background: rgba(255,255,255,0.14);
+        }
+
+        .steps {
+            text-align: left;
+            margin: 20px 0;
+            padding: 18px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 16px;
+            border-left: 3px solid #FFD60A;
+        }
+
+        .steps h4 {
+            color: #FFD60A;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .steps ol {
+            padding-left: 18px;
+        }
+
+        .steps li {
+            color: rgba(255,255,255,0.55);
+            font-size: 0.82rem;
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        .steps li strong {
+            color: rgba(255,255,255,0.85);
+        }
+
+        .warning {
+            margin-top: 20px;
+            padding: 14px;
+            background: rgba(255,59,48,0.1);
+            border: 1px solid rgba(255,59,48,0.2);
+            border-radius: 12px;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #34C759;
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 999;
+            transition: transform 0.4s cubic-bezier(.18,.89,.32,1.28);
+            box-shadow: 0 8px 30px rgba(52,199,89,0.5);
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="app">
+<div class="card">
+    <div class="app-icon">🎮</div>
+    <h1>Miyu x Roblox</h1>
+    <div class="developer">KzxMiyu</div>
+    <div class="version">Version 2.888.666 • Build 1773258008</div>
 
-<img src="icon.png">
+    <div class="info-grid">
+        <div class="info-item">
+            <div class="val">~200MB</div>
+            <div class="lbl">Dung lượng</div>
+        </div>
+        <div class="info-item">
+            <div class="val">iOS 15+</div>
+            <div class="lbl">Yêu cầu</div>
+        </div>
+        <div class="info-item">
+            <div class="val">2.888</div>
+            <div class="lbl">Phiên bản</div>
+        </div>
+    </div>
 
-<h2>Miyu x Roblox</h2>
+    <!-- ===== NÚT CÀI OTA (cần host manifest.plist trên HTTPS) ===== -->
+    <a class="btn btn-install"
+       href="itms-services://?action=download-manifest&url=https://YOUR-DOMAIN.COM/manifest.plist"
+       id="otaBtn">
+        📲 Cài đặt OTA
+    </a>
 
-<p>Bấm vào nút bên dưới để tải</p>
+    <!-- ===== NÚT TẢI IPA TRỰC TIẾP ===== -->
+    <a class="btn btn-direct"
+       href="https://github.com/KzxMiyu/Roblox/releases/download/Roblox_Miyu/Miyu.x.Roblox_2.888.666_1773258008.ipa"
+       id="directBtn">
+        ⬇️ Tải file IPA
+    </a>
 
-<a href="itms-services://?action=download-manifest&url=https://kzxmiyu.github.io/Roblox/manifest.plist">
+    <!-- ===== COPY LINK ===== -->
+    <button class="btn btn-alt" onclick="copyLink()">
+        🔗 Sao chép link tải
+    </button>
 
-<button>Install</button>
+    <div class="steps">
+        <h4>📋 Hướng dẫn cài đặt IPA:</h4>
+        <ol>
+            <li>Tải file <strong>.ipa</strong> về máy tính (Windows/Mac)</li>
+            <li>Cài <strong>AltStore</strong>, <strong>Sideloadly</strong> hoặc <strong>TrollStore</strong></li>
+            <li>Kết nối <strong>iPhone</strong> qua cáp USB</li>
+            <li>Kéo thả file IPA vào tool → nhập <strong>Apple ID</strong></li>
+            <li>Chờ cài đặt xong → vào <strong>Cài đặt → VPN & Quản lý thiết bị</strong></li>
+            <li>Nhấn <strong>Tin cậy</strong> chứng chỉ developer</li>
+            <li>Mở app và sử dụng 🎉</li>
+        </ol>
+    </div>
 
-</a>
-
+    <div class="warning">
+        ⚠️ <strong>Lưu ý:</strong> Nếu cài bằng AltStore, app cần được
+        <strong>làm mới mỗi 7 ngày</strong>. Dùng TrollStore (nếu thiết bị hỗ trợ)
+        để cài vĩnh viễn không cần gia hạn.
+    </div>
 </div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ===== LINK IPA GỐC =====
+const IPA_URL = "https://github.com/KzxMiyu/Roblox/releases/download/Roblox_Miyu/Miyu.x.Roblox_2.888.666_1773258008.ipa";
+
+// ===== THAY BẰNG LINK MANIFEST.PLIST THẬT CỦA BẠN =====
+// Ví dụ host trên GitHub Pages, Netlify, Vercel...
+const MANIFEST_URL = "https://YOUR-DOMAIN.COM/manifest.plist";
+
+// Cập nhật href cho nút OTA
+document.getElementById('otaBtn').href =
+    `itms-services://?action=download-manifest&url=${encodeURIComponent(MANIFEST_URL)}`;
+
+// Copy link
+function copyLink() {
+    navigator.clipboard.writeText(IPA_URL).then(() => {
+        showToast('✅ Đã sao chép link tải IPA!');
+    }).catch(() => {
+        // Fallback
+        const ta = document.createElement('textarea');
+        ta.value = IPA_URL;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast('✅ Đã sao chép link tải IPA!');
+    });
+}
+
+function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// Detect iOS
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+if (!isIOS) {
+    document.getElementById('otaBtn').style.display = 'none';
+}
+</script>
 
 </body>
 </html>
